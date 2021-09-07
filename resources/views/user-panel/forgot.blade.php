@@ -23,9 +23,10 @@
         </div>
         <div class="card-body">
             <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
-            <form action="recover-password.html" method="post">
+            <form action="{{url('user-forget')}}" method="post" id="user_forget">
+                @csrf
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" name="email" class="form-control" placeholder="Email">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -54,5 +55,6 @@
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+<script src="{{asset('custom/js/store.js')}}"></script>
 </body>
 </html>

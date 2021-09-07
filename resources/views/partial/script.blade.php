@@ -46,10 +46,11 @@
             serverSide: true,
             ajax: "{{ route('user.index') }}",
             columns: [
-                {data: 'id', name: 'id'},
+                {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
                 {data: 'name', name: 'name'},
-                {data: 'ip', name: 'ip'},
+                {data: 'user_id', name: 'user_id'},
                 {data: 'email', name: 'email'},
+                {data: 'ip', name: 'ip'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
@@ -59,7 +60,7 @@
             serverSide: true,
             ajax: "{{ route('type.index') }}",
             columns: [
-                {data: 'id', name: 'id'},
+                {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
                 {data: 'type', name: 'type'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
@@ -70,8 +71,21 @@
             serverSide: true,
             ajax: "{{ route('form.index') }}",
             columns: [
-                {data: 'id', name: 'id'},
+                {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
                 {data: 'name', name: 'name'},
+                {data: 'status', name: 'status'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ]
+        });
+        $("#application_list").DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('application.list') }}",
+            columns: [
+                {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
+                {data: 'name', name: 'name'},
+                {data: 'email', name: 'email'},
+                {data: 'app_id', name: 'app_id'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]

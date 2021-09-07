@@ -18,7 +18,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url('application')}}" class="nav-link @if(session('page') == 'application') active @endif">
+            <a href="{{url('application-list')}}" class="nav-link @if(session('page') == 'application') active @endif">
                 <i class="fas fa-address-card nav-icon"></i>
                 <p>Application</p>
             </a>

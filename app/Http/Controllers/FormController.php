@@ -5,15 +5,28 @@ namespace App\Http\Controllers;
 use App\Models\Form;
 use App\Models\FormField;
 use App\Models\FormType;
+use App\Models\sub;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
 class FormController extends Controller
 {
+    public function fieldUpdate(Request $request){
+        FormField::where('id', $request->id)->update([
+            'type_id' => $request->type,
+            'label' => $request->label,
+            'name' => strtolower(str_replace(' ', '_', $request->label)),
+            'option' => $request->option,
+        ]);
+        return response()->json([
+            'message' => 'Field updated Successfully'
+        ],200);
+    }
+
     public function fieldStore(Request $request){
        FormField::create([
-         'form_id' => $request->id,
+           'form_id' => $request->id,
            'type_id' => $request->type,
            'label' => $request->label,
            'name' => strtolower(str_replace(' ', '_', $request->label)),
@@ -83,7 +96,8 @@ class FormController extends Controller
     public function store(Request $request)
     {
         Form::create([
-            'type' => strtolower($request->type),
+            'name' => $request->name,
+            'status' => 1,
         ]);
         return response()->json([
             'message' => 'Type Created Successfully'
@@ -165,7 +179,7 @@ class FormController extends Controller
         $fields = DB::table('form_fields as f')
                     ->leftJoin('form_types as t','f.type_id','t.id')
                     ->where('form_id',$id)
-                    ->select('f.*','t.type')
+                    ->select('f.*','t.type','t.id as t_id')
                     ->get();
 
         $types = FormType::all();

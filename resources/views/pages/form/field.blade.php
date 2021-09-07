@@ -43,7 +43,7 @@
                                         <input type="text" id="label" name="label" class="form-control" placeholder="Field Label Name" required>
                                     </div>
                                     <div class="col-7">
-                                        <label for="option">Option</label>
+                                        <label for="option">Option/Note Details</label>
                                         <input type="text" id="option" name="option" class="form-control" placeholder="Option will be comma separated">
                                     </div>
 
@@ -63,8 +63,8 @@
                                            <th>Type</th>
                                            <th>Label</th>
                                            <th>Name</th>
-                                           <th>Option</th>
-                                           <th width="100px">Action</th>
+                                           <th width="400px">Option</th>
+                                           <th width="150px">Action</th>
                                        </tr>
                                        </thead>
                                        <tbody>
@@ -75,7 +75,8 @@
                                                <td>{{$f->name}}</td>
                                                <td>{{$f->option}}</td>
                                                <td>
-                                                   <button class="btn btn-sm btn-warning" onclick="removeField({{$f->id}})">Remove</button>
+                                                   <button class="btn btn-sm btn-danger" onclick="removeField({{$f->id}})">Remove</button>
+                                                   <button class="btn btn-sm btn-warning" onclick="editField({{ json_encode($f, true)}})">Edit</button>
                                                </td>
                                            </tr>
                                        @endforeach
@@ -90,4 +91,5 @@
         </section>
         <!-- /.content -->
     </div>
+    @include('.pages.form.f-modal')
 @endsection

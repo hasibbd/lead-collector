@@ -36,6 +36,7 @@
                                  <tr>
                                      <th width="15px">No</th>
                                      <th>Name</th>
+                                     <th>User ID</th>
                                      <th>Email</th>
                                      <th>IP</th>
                                      <th>Status</th>

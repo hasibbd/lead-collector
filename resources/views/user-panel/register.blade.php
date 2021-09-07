@@ -26,9 +26,10 @@
         <div class="card-body">
             <p class="login-box-msg">Register a new membership</p>
 
-            <form id="user_submit">
+            <form id="user_submit2">
+                @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="name" placeholder="Full name">
+                    <input type="text" class="form-control" name="name" placeholder="Full name" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -36,7 +37,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" name="email" placeholder="Email">
+                    <input type="email" class="form-control" name="email" placeholder="Email" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -44,7 +45,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="phone" placeholder="Phone">
+                    <input type="text" class="form-control" name="phone" placeholder="Phone" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-phone-square"></span>
@@ -52,7 +53,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -60,7 +61,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" name="c_password" placeholder="Retype password">
+                    <input type="password" class="form-control" name="c_password" placeholder="Retype password" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -84,7 +85,7 @@
                 </div>
             </form>
 
-            <a href="{{url('login')}}" class="text-center">I already have a membership</a>
+            <a href="{{url('/')}}" class="text-center">I already have a membership</a>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
